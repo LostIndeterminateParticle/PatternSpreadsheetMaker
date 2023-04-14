@@ -1,0 +1,83 @@
+//want to be able to do nothing (either by just not calling out the column in the first place, or by setting the instructions to null)
+//want to be able to easily call out the primitive data types in SysML -- in addition to the strings that would already be populated. (Integer, and Real now; Complex and Boolean soon; possibly handle all the UML data types at some point?)
+//want to be able to easily add on constraints on values to easily define a subset of possible values without enumerating the options (e.g. make it easy to set bunch of multiplicity-like numbers to the integers 0 or 1)
+{
+	"Instructions": {
+		//Call out each column to edit by name (the text in the cells in the top row) and provide instructions on the type of data to fill in instead
+		"columnName1":null,//null to do nothing to the column (could also just not include the column)
+		"columnName2":"Integer",// call out a type of data to populate based on TBD default constraints ("Integer","Real","Complex","Boolean")
+		"columnNameN":"instructionNameX"// or call out the name of one of the instructions defined below in Instruction Specifications
+	},
+	"Instruction Specifications":{
+		//define any Instructions called out above here by name (allowing them to be reused)
+		"instructionName0":{
+			//general form of an instruction
+			"type":"",// how to interpret the value entry ("")
+			"value":"",// what value to actually populate
+			"constraints":null //null to not add any constraints (could also just not include the "constraints" entry)
+		},
+		"instructionName1":{
+			//set to 1 (as an integer)
+			"type":"Integer",//how to interpret the value entry ("")
+			"value":"1", //this would explicitly set all occurances to "1"
+			"constraints":null //null to not add any constraints (could also just not include the "constraints" entry)
+		},
+		"instructionName2":{
+			//set to 0 or 1 randomly
+			//this would be equivalent to instructionName3
+			"type":"Integer",
+			"value":null, // should I restrict to only doing this kind of thing in one way?
+			"constraints":{
+				"min":"0",
+				"max":"1",
+				"step": null, //null to not add one of the constraints (could also just not include that constraint)
+				"exclude": null //null to not add one of the constraints (could also just not include that constraint)
+			}
+		},
+		"instructionName3":{
+			//set to 0 or 1 randomly
+			//this would be equivalent to instructionName2
+			"type":"Integer",
+			"value":["0","1"], // should I restrict to only doing this kind of thing in one way?
+			"constraints": null
+		},
+		},
+		"instructionName4":{
+			//example using all the constraints to restrict to the integers 1, 4, or 10
+			"type":"Integer",
+			"value":null, // is this how I want to do this?
+			"constraints":{
+				"min":"1",
+				"max":"10",
+				"step":"3",
+				"exclude":["7"] //exclude uses a list to allow multiple values to be excluded
+		},
+		"instructionName5":{
+			//example using all the constraints to restrict to the integers 1, 4, 10, 13, or 19
+			"type":"Integer",
+			"value":null, // is this how I want to do this?
+			"constraints":{
+				"min":"1",
+				"max":"10",
+				"step":"3",
+				"exclude":["7","16"]
+			}
+		},
+		"instructionName6":{
+			//example of an enumeration (using a list for the value to define the enumeration values)
+			"type": "Enumeration",
+			"value":[
+				{"type":"String","value":"val1"},
+				{"type":"String","value":"val2"},
+				{"type":"String","value":"valN"}
+			],
+			"constraints":null
+		}
+	}
+}
+
+//constraint possibilities:
+//min
+//max
+//step
+//exclude

@@ -1,0 +1,46 @@
+{
+    "Columns to Navigation Map": {
+        "": [
+            ""
+        ],
+        "": [
+            ""
+        ],
+        "": [
+            ""
+        ]
+    },
+    "Pattern Graph Edges": [
+        [
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            ""
+        ],
+    ],
+    "Root Node": "",
+    "Vertex MetaTypes": {
+        "": "",
+        "": "",
+        "": ""
+    },
+    "Vertex Settings": {
+        "": null,
+        "": {
+            "": ""
+        }
+    },
+    "Vertex Stereotypes": {
+        "": null,
+        "": [
+            {
+                "": "",
+                "": ""
+            }
+        ]
+    }
+}
